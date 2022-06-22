@@ -1,42 +1,4 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import informacao from './directives/informacao.js';
-import posicao from './directives/posicao.js';
-import texto from './directives/texto.js';
-
-const vue = createApp(App);
-
-vue.directive('texto', texto);
-vue.directive('posicao', posicao);
-vue.directive('informacao', informacao);
-
-/* Diretão
-vue.directive('texto', {
-    created(el, binding) { // chamado antes que os atributos do elemente ou ouvintes de event (event listeners) sejam aplicados
-        if(binding.value?.cor)  el.style.color = binding.value.cor;
-        if(binding.value?.tamanhoFonte)  el.style.fontSize = binding.value.tamanhoFonte;
-
-        let totalCaracteres = (binding.value?.totalCaracteres) ? binding.value.totalCaracteres : 25;
-        let textoOriginal = el.innerText;
-        let tamanhoTextoOriginal = textoOriginal.length;
-
-        if(tamanhoTextoOriginal > totalCaracteres) {
-            el.innerText = textoOriginal.substring(0, (totalCaracteres-3))+'...';
-        }
-    }
-});
-
-vue.directive('posicao', {
-    created(elemento, binding) {
-        const posicoesPossiveis = ['fixed', 'relative', 'absolute'];
-        if(posicoesPossiveis.includes(binding.arg)) {
-            elemento.style.position = binding.arg;
-            elemento.style.top = `${binding.value}px`;
-        }
-    }
-});
-
-vue.directive('informacao', {
+export default {
     created(elemento, binding) {
         let funcao = () => {};
 
@@ -106,6 +68,4 @@ vue.directive('informacao', {
             elemento.addEventListener('dblclick', funcao);
         }
     }
-});
-*/
-vue.mount('#app');
+};
